@@ -62,5 +62,6 @@ dkms.conf
 *.ptx
 *.cubin
 *.fatbin
+*/cmake-build-debug
 
 # End of https://www.toptal.com/developers/gitignore/api/cuda,c
