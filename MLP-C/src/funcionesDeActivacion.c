@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "../cabeceras/parametros.h"
 
 
 void lineal(int TamCapa,  double *entrada, double *salida) {

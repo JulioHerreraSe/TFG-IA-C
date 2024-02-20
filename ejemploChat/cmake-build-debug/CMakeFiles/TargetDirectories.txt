@@ -1,0 +1,3 @@
+C:/Users/julio/OneDrive/Escritorio/TFG-IA-C/ejemploChat/cmake-build-debug/CMakeFiles/ejemploChat.dir
+C:/Users/julio/OneDrive/Escritorio/TFG-IA-C/ejemploChat/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/julio/OneDrive/Escritorio/TFG-IA-C/ejemploChat/cmake-build-debug/CMakeFiles/rebuild_cache.dir

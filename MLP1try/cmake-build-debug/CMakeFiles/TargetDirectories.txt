@@ -1,0 +1,3 @@
+C:/Users/julio/OneDrive/Escritorio/TFG-IA-C/MLP1try/cmake-build-debug/CMakeFiles/MLP1try.dir
+C:/Users/julio/OneDrive/Escritorio/TFG-IA-C/MLP1try/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/julio/OneDrive/Escritorio/TFG-IA-C/MLP1try/cmake-build-debug/CMakeFiles/rebuild_cache.dir

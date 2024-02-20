@@ -1,14 +1,23 @@
-//
-// Created by julio on 13/02/2024.
-//
+// dense_layer.h
 
-#ifndef MLP_C_LAYER_DENSE_H
-#define MLP_C_LAYER_DENSE_H
+#ifndef DENSE_LAYER_H
+#define DENSE_LAYER_H
 
+#include <stdlib.h> // Incluir para size_t
 
-class Layer_Dense{
+#define NUM_INPUTS 3
+#define NUM_OUTPUTS 2
 
-};
+// Estructura para la capa densa
+typedef struct {
+    double weights[NUM_INPUTS][NUM_OUTPUTS]; // Matriz de pesos
+    double bias[NUM_OUTPUTS]; // Vector de bias
+} Dense_Layer;
 
+// Declara las funciones para ser usadas por otros archivos
+void initializeRandom();
+double randomWeight();
+void initializeDenseLayer(Dense_Layer *layer);
+void applyDenseLayer(Dense_Layer *layer, double input[NUM_INPUTS], double output[NUM_OUTPUTS]);
 
-#endif //MLP_C_LAYER_DENSE_H
+#endif // DENSE_LAYER_H

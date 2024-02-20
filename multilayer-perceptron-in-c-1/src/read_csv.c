@@ -5,7 +5,7 @@ Desc: Read .csv file into a 2D array
 GitHub: https://github.com/manoharmukku/multilayer-perceptron-in-c
 */
 
-#include "read_csv.h"
+#include "../include/read_csv.h"
 
 void read_csv(char* filename, int rows, int cols, double** data) {
     // Open file and perform sanity check
