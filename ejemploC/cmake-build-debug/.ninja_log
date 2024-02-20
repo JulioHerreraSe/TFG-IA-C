@@ -1,0 +1,8 @@
+# ninja log v5
+3	106	7300870899783191	CMakeFiles/ejemploC.dir/main.c.obj	190b62c1103be72d
+106	201	7300870900684800	ejemploC.exe	e8582737f64418c
+9	89	7300869894155571	CMakeFiles/ejemploC.dir/src/dataReader.c.obj	88901b2f2784bb18
+3	105	7300871582430541	CMakeFiles/ejemploC.dir/src/main.c.obj	2fcbdba5543fdb7e
+106	204	7300871583374792	ejemploC.exe	e08d9ca3efcfcae7
+2	226	7300887217707548	CMakeFiles/ejemploC.dir/src/main.c.obj	2fcbdba5543fdb7e
+227	406	7300887219466037	ejemploC.exe	e08d9ca3efcfcae7
