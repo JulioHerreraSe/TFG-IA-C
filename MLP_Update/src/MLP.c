@@ -1,8 +1,29 @@
 #include "../includes/mlp.h"
-#include "../includes/config.h"
 
-static double randRange(double min, double max) {
-    return (double)rand() / RAND_MAX * (max - min) + min;
+double generateNormal() {
+    double u1 = (double)rand() / RAND_MAX;
+    double u2 = (double)rand() / RAND_MAX;
+    return sqrt(-2.0 * log(u1)) * cos(2.0 * M_PI * u2);
+}
+
+double generateHeWeight(int previousLayerSize) {
+    return generateNormal() * sqrt(2.0 / previousLayerSize);
+}
+
+double ReLU(double x){
+    if(x > 0){
+        return x;
+    }else {
+        return 0;
+    }
+}
+
+double ReLUDerivative(double x) {
+    if(x > 0){
+        return 1;
+    }else {
+        return 0;
+    }
 }
 
 static double sigmoid(double x) {
@@ -24,9 +45,9 @@ void initializeMLP(MLP *mlp, int inputSize, int hiddenSize, int outputSize) {
     for (i = 0; i < hiddenSize; i++) {
         mlp->hiddenLayer.weights[i] = (double *)malloc(inputSize * sizeof(double));
         for (j = 0; j < inputSize; j++) {
-            mlp->hiddenLayer.weights[i][j] = randRange(-1.0, 1.0);
+            mlp->hiddenLayer.weights[i][j] = generateHeWeight(inputSize);
         }
-        mlp->hiddenLayer.bias[i] = randRange(-1.0, 1.0);
+        mlp->hiddenLayer.bias[i] = generateNormal() * sqrt(2.0 / (inputSize + hiddenSize));
     }
 
     // Output Layer
@@ -37,9 +58,9 @@ void initializeMLP(MLP *mlp, int inputSize, int hiddenSize, int outputSize) {
     for (i = 0; i < outputSize; i++) {
         mlp->outputLayer.weights[i] = (double *)malloc(hiddenSize * sizeof(double));
         for (j = 0; j < hiddenSize; j++) {
-            mlp->outputLayer.weights[i][j] = randRange(-1.0, 1.0);
+            mlp->outputLayer.weights[i][j] = generateHeWeight(hiddenSize);
         }
-        mlp->outputLayer.bias[i] = randRange(-1.0, 1.0);
+        mlp->outputLayer.bias[i] = generateNormal() * sqrt(2.0 / (hiddenSize + outputSize));
     }
 }
 
@@ -52,7 +73,9 @@ double forward(MLP *mlp, double *input, double *hiddenOutput) {
         hiddenOutput[i] = 0.0;
         for (j = 0; j < mlp->hiddenLayer.inputSize; j++) {
             hiddenOutput[i] += input[j] * mlp->hiddenLayer.weights[i][j];
+            //printf("input %d: %lf, peso: %lf ", j, input[j], mlp->hiddenLayer.weights[i][j]);
         }
+        //printf("\n");
         hiddenOutput[i] += mlp->hiddenLayer.bias[i];
         hiddenOutput[i] = sigmoid(hiddenOutput[i]);
     }
@@ -111,6 +134,101 @@ void train(MLP *mlp, double *input, double target, double learningRate) {
     // Liberar memoria de los deltas
     free(outputDeltas);
     free(hiddenDeltas);
+}
+
+void testMLP(const MLP *mlp, double **features, double *target, int numSamplesTest) {
+    double sumPercentageError = 0.0;
+    for (int i = 0; i < numSamplesTest; i++) {
+        double hiddenOutputs[HIDDEN_SIZE]; // Asume que HIDDEN_SIZE es conocido aquí
+        double predicted = forward(mlp, features[i], hiddenOutputs);
+        double error = target[i] - predicted;
+
+        // Asegúrate de que el target[i] no es cero para evitar la división por cero
+        if (target[i] != 0) {
+            sumPercentageError += fabs(error / target[i]);
+        }
+        printf("Test Sample %d - Target: %f, Predicted: %f, Error: %f\n", i, target[i], predicted, error);
+    }
+    double mape = (sumPercentageError / numSamplesTest) * 100; // Multiplica por 100 para obtener el porcentaje
+    printf("MAPE (Test Set): %f%%\n", mape);
+}
+
+
+void guardarPesosYBiasCSV(const MLP *mlp, const char* archivoPesosCapaOculta, const char* archivoBiasCapaOculta, const char* archivoPesosCapaSalida, const char* archivoBiasCapaSalida) {
+    int i, j;
+
+    // Guardar pesos y bias de la capa oculta
+    FILE* filePesos = fopen(archivoPesosCapaOculta, "w");
+    FILE* fileBias = fopen(archivoBiasCapaOculta, "w");
+    if (filePesos != NULL && fileBias != NULL) {
+        for (i = 0; i < mlp->hiddenLayer.outputSize; i++) {
+            for (j = 0; j < mlp->hiddenLayer.inputSize; j++) {
+                fprintf(filePesos, "%f", mlp->hiddenLayer.weights[i][j]);
+                if (j < mlp->hiddenLayer.inputSize - 1) fprintf(filePesos, ";");
+            }
+            fprintf(filePesos, "\n");
+            fprintf(fileBias, "%f\n", mlp->hiddenLayer.bias[i]);
+        }
+        fclose(filePesos);
+        fclose(fileBias);
+    } else {
+        printf("No se pudo abrir los archivos para escribir los pesos y bias de la capa oculta.\n");
+    }
+
+    // Guardar pesos y bias de la capa de salida
+    filePesos = fopen(archivoPesosCapaSalida, "w");
+    fileBias = fopen(archivoBiasCapaSalida, "w");
+    if (filePesos != NULL && fileBias != NULL) {
+        for (i = 0; i < mlp->outputLayer.outputSize; i++) {
+            for (j = 0; j < mlp->outputLayer.inputSize; j++) {
+                fprintf(filePesos, "%f", mlp->outputLayer.weights[i][j]);
+                if (j < mlp->outputLayer.inputSize - 1) fprintf(filePesos, ";");
+            }
+            fprintf(filePesos, "\n");
+            fprintf(fileBias, "%f\n", mlp->outputLayer.bias[i]);
+        }
+        fclose(filePesos);
+        fclose(fileBias);
+    } else {
+        printf("No se pudo abrir los archivos para escribir los pesos y bias de la capa de salida.\n");
+    }
+}
+
+void cargarPesosYBiasCSV(MLP *mlp, const char* archivoPesosCapaOculta, const char* archivoBiasCapaOculta, const char* archivoPesosCapaSalida, const char* archivoBiasCapaSalida) {
+    FILE* file;
+    int i, j;
+
+    // Cargar pesos y bias de la capa oculta
+    file = fopen(archivoPesosCapaOculta, "r");
+    FILE* fileBias = fopen(archivoBiasCapaOculta, "r");
+    if (file != NULL && fileBias != NULL) {
+        for (i = 0; i < mlp->hiddenLayer.outputSize; i++) {
+            for (j = 0; j < mlp->hiddenLayer.inputSize; j++) {
+                fscanf(file, "%lf;", &mlp->hiddenLayer.weights[i][j]);
+            }
+            fscanf(fileBias, "%lf\n", &mlp->hiddenLayer.bias[i]);
+        }
+        fclose(file);
+        fclose(fileBias);
+    } else {
+        printf("No se pudo abrir los archivos para leer los pesos y bias de la capa oculta.\n");
+    }
+
+    // Cargar pesos y bias de la capa de salida
+    file = fopen(archivoPesosCapaSalida, "r");
+    fileBias = fopen(archivoBiasCapaSalida, "r");
+    if (file != NULL && fileBias != NULL) {
+        for (i = 0; i < mlp->outputLayer.outputSize; i++) {
+            for (j = 0; j < mlp->outputLayer.inputSize; j++) {
+                fscanf(file, "%lf;", &mlp->outputLayer.weights[i][j]);
+            }
+            fscanf(fileBias, "%lf\n", &mlp->outputLayer.bias[i]);
+        }
+        fclose(file);
+        fclose(fileBias);
+    } else {
+        printf("No se pudo abrir los archivos para leer los pesos y bias de la capa de salida.\n");
+    }
 }
 
 void freeMLP(MLP *mlp) {
