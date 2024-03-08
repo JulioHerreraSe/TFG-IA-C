@@ -33,8 +33,8 @@ int main() {
             }
         }
         if(epoch % 100 == 0)
-        // Calcular y mostrar el error promedio y el promedio de error en porcentaje de la época
-        printf("Epoch %d - Average Total Error: %f\n", epoch, totalError / numSamples);
+            // Calcular y mostrar el error promedio y el promedio de error en porcentaje de la época
+            printf("Epoch %d - Average Total Error: %f\n", epoch, totalError / numSamples);
     }
 
     guardarPesosYBiasCSV(&mlp, "../pesos_bias/pesos_capa_oculta.csv", "../pesos_bias/bias_capa_oculta.csv", "../pesos_bias/pesos_capa_salida.csv", "../pesos_bias/bias_capa_salida.csv");

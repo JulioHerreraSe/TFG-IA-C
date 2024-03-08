@@ -6,7 +6,10 @@
 
 typedef struct {
     double **weights;
+    double *weightsState;
     double *bias;
+    double *biasState;
+    double *state;
     int inputSize;
     int outputSize;
 } Layer;

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader"><![CDATA[{
+  "useNewFormat": true
+}]]></component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="rnn_c" targetName="rnn_c" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3e2213f5-7599-4db1-978d-e4c4d5c93bfb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/rnn_c.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/dataset_wine_normalizado.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/dataset_wine_test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/dataset_wine_test_target.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/dataset_wine_train.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/dataset_wine_train_target.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/winequality-white.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/MLP.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/config.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/dataReader.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pesos_bias/bias_capa_oculta.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pesos_bias/bias_capa_salida.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pesos_bias/pesos_capa_oculta.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pesos_bias/pesos_capa_salida.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MLP.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dataReader.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_first/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_first/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_first/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_first/.idea/rnn_first.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_first/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_first/includes/config.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_first/includes/rnn.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_first/includes/util.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_first/src/rnn.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_first/src/util.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/includes/MLP.h" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/includes/MLP.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/includes/config.h" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/includes/config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/pesos_bias/bias_capa_oculta.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/pesos_bias/bias_capa_oculta.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/pesos_bias/bias_capa_salida.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/pesos_bias/bias_capa_salida.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/pesos_bias/pesos_capa_oculta.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/pesos_bias/pesos_capa_oculta.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/pesos_bias/pesos_capa_salida.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/pesos_bias/pesos_capa_salida.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/src/MLP.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/src/MLP.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/src/main.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2023" />
+    <option name="minorVersion" value="3.1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2dNFA1GwCKSvFmaieuKtyHbf1Nw" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.rnn_c.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/julio/OneDrive/Escritorio/TFG-IA-C/rnn_c",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\julio\OneDrive\Escritorio\TFG-IA-C\rnn_c" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\julio\OneDrive\Escritorio\TFG-IA-C\rnn_c\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rnn_c" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="rnn_c" TARGET_NAME="rnn_c" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="rnn_c" RUN_TARGET_NAME="rnn_c">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e2213f5-7599-4db1-978d-e4c4d5c93bfb" name="Changes" comment="" />
+      <created>1709840482138</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709840482138</updated>
+      <workItem from="1709840484216" duration="1802000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+</project>
