@@ -138,5 +138,5 @@ void freeRNNLayer(RNNLayer *layer) {
     free(layer->weights_out);
 
     // Liberar los sesgos
-    free(layer->bias);
+    free(layer->bias);.
 }
