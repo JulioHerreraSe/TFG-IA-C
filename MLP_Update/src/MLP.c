@@ -125,7 +125,7 @@ void train_MAE(MLP *mlp, double *input, double target, double learningRate) {
             mlp->outputLayer.weights[i][j] += learningRate * outputDelta * hiddenOutputs[j];
         }
         mlp->outputLayer.bias[i] += learningRate * outputDelta;
-    }
+    } 
 
     // Calcula los deltas para la capa oculta
     double hiddenDeltas[HIDDEN_SIZE];
