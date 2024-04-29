@@ -3,6 +3,8 @@ project(rnn_c C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(rnn_c src/main.c
-        src/dataReader.c
-        src/MLP.c)
+include_directories(src)
+
+add_subdirectory(src)
+add_subdirectory(tests)
+add_subdirectory(lib/googletest)

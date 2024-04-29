@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="rnn_c" targetName="rnn_c" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3e2213f5-7599-4db1-978d-e4c4d5c93bfb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../MLP_Update/datasets/dataset_temp15_test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MLP_Update/datasets/dataset_temp15_train.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MLP_Update/datasets/dataset_temp_test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MLP_Update/datasets/dataset_temp_train.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MLP_Update/resultados-1-c-mlp.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MLP_Update/resultados-10-c-mlp.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MLP_Update/resultados-100.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/.clang-format" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/CONTRIBUTORS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/MODULE.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/WORKSPACE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/WORKSPACE.bzlmod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/fake_fuchsia_sdk.bzl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/lib/googletest/googletest_deps.bzl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/resultados.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/src/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/tests/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rnn_c/tests/dataReader.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/includes/MLP.h" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/includes/MLP.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/includes/config.h" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/includes/config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/pesos_bias/bias_capa_oculta.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/pesos_bias/bias_capa_oculta.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/pesos_bias/bias_capa_salida.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/pesos_bias/bias_capa_salida.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/pesos_bias/pesos_capa_oculta.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/pesos_bias/pesos_capa_oculta.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/pesos_bias/pesos_capa_salida.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/pesos_bias/pesos_capa_salida.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/src/MLP.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/src/MLP.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/src/dataReader.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/src/dataReader.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MLP_Update/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MLP_Update/src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/includes/MLP.h" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/includes/RNN.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/includes/config.h" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/includes/config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/pesos_bias/bias_capa_oculta.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/pesos_bias/bias_capa_oculta.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/pesos_bias/bias_capa_salida.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/pesos_bias/bias_capa_salida.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/pesos_bias/pesos_capa_oculta.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/pesos_bias/pesos_capa_oculta.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/pesos_bias/pesos_capa_salida.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/pesos_bias/pesos_capa_salida.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/src/MLP.c" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/src/RNN.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/src/dataReader.c" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/src/dataReader.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rnn_c/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../rnn_c/src/main.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2023" />
+    <option name="minorVersion" value="3.1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2dNFA1GwCKSvFmaieuKtyHbf1Nw" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.rnn_c.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/julio/OneDrive/Escritorio/TFG-IA-C/MLP_Update",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "database.data.csv.formats",
+    "structure.view.defaults.are.configured": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\julio\OneDrive\Escritorio\TFG-IA-C\rnn_c" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\julio\OneDrive\Escritorio\TFG-IA-C\rnn_c" />
+      <recent name="C:\Users\julio\OneDrive\Escritorio\TFG-IA-C\rnn_c\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="rnn_c" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="rnn_c" TARGET_NAME="rnn_c" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="rnn_c" RUN_TARGET_NAME="rnn_c">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e2213f5-7599-4db1-978d-e4c4d5c93bfb" name="Changes" comment="" />
+      <created>1709840482138</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709840482138</updated>
+      <workItem from="1709840484216" duration="1802000" />
+      <workItem from="1709858652034" duration="31000" />
+      <workItem from="1709858780754" duration="10000" />
+      <workItem from="1710237366857" duration="1293000" />
+      <workItem from="1710255272459" duration="199000" />
+      <workItem from="1710260374520" duration="6000" />
+      <workItem from="1711211443182" duration="9480000" />
+      <workItem from="1711258309494" duration="6318000" />
+      <workItem from="1711277849627" duration="3273000" />
+      <workItem from="1711342617311" duration="182000" />
+      <workItem from="1711435475965" duration="8370000" />
+      <workItem from="1711458176182" duration="221000" />
+      <workItem from="1711577694692" duration="634000" />
+      <workItem from="1711708321566" duration="299000" />
+      <workItem from="1712104812144" duration="1035000" />
+      <workItem from="1712671291179" duration="367000" />
+      <workItem from="1712822645589" duration="961000" />
+      <workItem from="1713133553783" duration="4202000" />
+      <workItem from="1713212390494" duration="1160000" />
+      <workItem from="1713226753085" duration="6950000" />
+      <workItem from="1713248987843" duration="242000" />
+      <workItem from="1713250654610" duration="56000" />
+      <workItem from="1713256018081" duration="33000" />
+      <workItem from="1713276487582" duration="3402000" />
+      <workItem from="1713335028615" duration="911000" />
+      <workItem from="1713336407995" duration="1970000" />
+      <workItem from="1713350513452" duration="646000" />
+      <workItem from="1713479871859" duration="2840000" />
+      <workItem from="1713493428096" duration="2966000" />
+      <workItem from="1713517357763" duration="283000" />
+      <workItem from="1713582472067" duration="785000" />
+      <workItem from="1713583270288" duration="3000" />
+      <workItem from="1713583348912" duration="1187000" />
+      <workItem from="1713585407681" duration="4399000" />
+      <workItem from="1713975970372" duration="1483000" />
+      <workItem from="1713982858659" duration="58000" />
+      <workItem from="1714064768302" duration="1154000" />
+      <workItem from="1714066645908" duration="3491000" />
+      <workItem from="1714116355215" duration="1448000" />
+      <workItem from="1714139945670" duration="1061000" />
+      <workItem from="1714142476763" duration="393000" />
+      <workItem from="1714143459097" duration="91000" />
+      <workItem from="1714143882064" duration="5000" />
+      <workItem from="1714144499121" duration="30000" />
+      <workItem from="1714145492614" duration="1360000" />
+      <workItem from="1714235561944" duration="9000" />
+      <workItem from="1714236823708" duration="2000" />
+      <workItem from="1714240155283" duration="191000" />
+      <workItem from="1714240475360" duration="97000" />
+      <workItem from="1714240632064" duration="46000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

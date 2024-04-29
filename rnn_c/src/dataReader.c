@@ -20,14 +20,14 @@ void read_csv(const char* filePath, double*** features, double** target, int* nu
     *features = (double **)malloc(*numSamples * sizeof(double *));
     *target = (double *)malloc(*numSamples * sizeof(double));
     for (i = 0; i < *numSamples; i++) {
-        (*features)[i] = (double *)malloc(NUM_FEATURES * sizeof(double));
+        (*features)[i] = (double *)malloc(INPUT_SIZE * sizeof(double));
     }
 
     // Leer y almacenar los datos
     i = 0;
     while (fgets(line, MAX_LINE_LENGTH, file) != NULL && i < *numSamples) {
         char* token = strtok(line, ";");
-        for (j = 0; j < NUM_FEATURES; j++) {
+        for (j = 0; j < INPUT_SIZE; j++) {
             (*features)[i][j] = atof(token);
             token = strtok(NULL, ";");
         }
