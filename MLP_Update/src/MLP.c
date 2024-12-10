@@ -6,9 +6,10 @@ double generateNormal() {
     return sqrt(-2.0 * log(u1)) * cos(2.0 * M_PI * u2);
 }
 
-double generateHeWeight(int previousLayerSize) {
-    return generateNormal() * sqrt(2.0 / previousLayerSize);
+double generateXavierWeight(int previousLayerSize) {
+    return generateNormal() * sqrt(1.0 / previousLayerSize);
 }
+
 
 double ReLU(double x){
     if(x > 0){
@@ -33,7 +34,6 @@ static double sigmoid(double x) {
 static double sigmoidDerivative(double x) {
     return x * (1.0 - x);
 }
-
 void initializeMLP(MLP *mlp, int inputSize, int hiddenSize, int outputSize) {
     int i, j;
 
@@ -45,9 +45,9 @@ void initializeMLP(MLP *mlp, int inputSize, int hiddenSize, int outputSize) {
     for (i = 0; i < hiddenSize; i++) {
         mlp->hiddenLayer.weights[i] = (double *)malloc(inputSize * sizeof(double));
         for (j = 0; j < inputSize; j++) {
-            mlp->hiddenLayer.weights[i][j] = generateHeWeight(inputSize);
+            mlp->hiddenLayer.weights[i][j] = generateXavierWeight(inputSize);
         }
-        mlp->hiddenLayer.bias[i] = generateNormal() * sqrt(2.0 / (inputSize + hiddenSize));
+        mlp->hiddenLayer.bias[i] = generateXavierWeight(inputSize);
     }
 
     // Output Layer
@@ -58,9 +58,9 @@ void initializeMLP(MLP *mlp, int inputSize, int hiddenSize, int outputSize) {
     for (i = 0; i < outputSize; i++) {
         mlp->outputLayer.weights[i] = (double *)malloc(hiddenSize * sizeof(double));
         for (j = 0; j < hiddenSize; j++) {
-            mlp->outputLayer.weights[i][j] = generateHeWeight(hiddenSize);
+            mlp->outputLayer.weights[i][j] = generateXavierWeight(hiddenSize);
         }
-        mlp->outputLayer.bias[i] = generateNormal() * sqrt(2.0 / (hiddenSize + outputSize));
+        mlp->outputLayer.bias[i] = generateXavierWeight(hiddenSize);
     }
 }
 
@@ -94,65 +94,88 @@ double forward(MLP *mlp, double *input, double *hiddenOutput) {
     return finalOutput;
 }
 
-void train(MLP *mlp, double *input, double target, double learningRate) {
+double trainMSE(MLP *mlp, double *input, double target, double learningRate) {
     int i, j;
-    double hiddenOutputs[HIDDEN_SIZE];
+    double hiddenOutputs[HIDDEN_SIZE]; // Asegúrate de que HIDDEN_SIZE esté definido correctamente.
     double predictedOutput = forward(mlp, input, hiddenOutputs);
-    double *outputDeltas = (double *)malloc(OUTPUT_SIZE * sizeof(double));
-    double *hiddenDeltas = (double *)malloc(HIDDEN_SIZE * sizeof(double));
+    double error = target - predictedOutput; // Calcula el error entre el target y la predicción
+    double mse_gradient = error * 2;
 
-    // Calcular delta para la capa de salida
-    for (i = 0; i < OUTPUT_SIZE; i++) {
-        outputDeltas[i] = (target - predictedOutput);  // Error derivativo para la función de pérdida MSE
-    }
+    // Calcula el delta para la capa de salida usando MAE
+    double outputDelta = mse_gradient;
 
-    // Actualizar pesos y bias de la capa de salida
+    // Actualiza los pesos y bias de la capa de salida
     for (i = 0; i < OUTPUT_SIZE; i++) {
         for (j = 0; j < HIDDEN_SIZE; j++) {
-            mlp->outputLayer.weights[i][j] += learningRate * outputDeltas[i] * hiddenOutputs[j];
+            mlp->outputLayer.weights[i][j] += learningRate * outputDelta * hiddenOutputs[j];
         }
-        mlp->outputLayer.bias[i] += learningRate * outputDeltas[i];
+        mlp->outputLayer.bias[i] += learningRate * outputDelta;
     }
 
-    // Calcular delta para la capa oculta
+    // Calcula los deltas para la capa oculta
+    double hiddenDeltas[HIDDEN_SIZE];
     for (i = 0; i < HIDDEN_SIZE; i++) {
         hiddenDeltas[i] = 0;
         for (j = 0; j < OUTPUT_SIZE; j++) {
-            hiddenDeltas[i] += outputDeltas[j] * mlp->outputLayer.weights[j][i];
+            hiddenDeltas[i] += outputDelta * mlp->outputLayer.weights[j][i];
         }
-        hiddenDeltas[i] *= sigmoidDerivative(hiddenOutputs[i]);
+        hiddenDeltas[i] *= sigmoidDerivative(hiddenOutputs[i]); // Asume sigmoid como función de activación
     }
 
-    // Actualizar pesos y bias de la capa oculta
+    // Actualiza los pesos y bias de la capa oculta
     for (i = 0; i < HIDDEN_SIZE; i++) {
         for (j = 0; j < INPUT_SIZE; j++) {
             mlp->hiddenLayer.weights[i][j] += learningRate * hiddenDeltas[i] * input[j];
         }
         mlp->hiddenLayer.bias[i] += learningRate * hiddenDeltas[i];
     }
-
-    // Liberar memoria de los deltas
-    free(outputDeltas);
-    free(hiddenDeltas);
+    return error * error;
 }
 
-void testMLP(const MLP *mlp, double **features, double *target, int numSamplesTest) {
+
+void testMLP(const MLP *mlp, double **features, double *target, int numSamplesTest, FILE *file) {
     double sumPercentageError = 0.0;
+    double sumAbsoluteError = 0.0;
+    double sumSquaredError = 0.0;
+    double sumTarget = 0.0;
+    double sumSquaredTarget = 0.0;
+    double sumTargetPredicted = 0.0;
     for (int i = 0; i < numSamplesTest; i++) {
         double hiddenOutputs[HIDDEN_SIZE]; // Asume que HIDDEN_SIZE es conocido aquí
         double predicted = forward(mlp, features[i], hiddenOutputs);
         double error = target[i] - predicted;
 
-        // Asegúrate de que el target[i] no es cero para evitar la división por cero
+        // Calcula MAE y MSE
+        sumAbsoluteError += fabs(error);
+        sumSquaredError += error * error;
+
+        // Acumulación para R^2
+        sumTarget += target[i];
+        sumSquaredTarget += target[i] * target[i];
+        sumTargetPredicted += target[i] * predicted;
+
+
+        // MAPE
         if (target[i] != 0) {
             sumPercentageError += fabs(error / target[i]);
         }
-        printf("Test Sample %d - Target: %f, Predicted: %f, Error: %f\n", i, target[i], predicted, error);
+        //printf("Test Sample %d - Target: %f, Predicted: %f, Error: %f\n", i, target[i], predicted, error);
     }
-    double mape = (sumPercentageError / numSamplesTest) * 100; // Multiplica por 100 para obtener el porcentaje
-    printf("MAPE (Test Set): %f%%\n", mape);
-}
+    double mae = sumAbsoluteError / numSamplesTest;
+    double mse = sumSquaredError / numSamplesTest;
 
+    double meanTarget = sumTarget / numSamplesTest;
+    double ssTotal = sumSquaredTarget - numSamplesTest * meanTarget * meanTarget;
+    double ssReg = sumTargetPredicted - numSamplesTest * meanTarget * meanTarget;
+    double rSquared = ssReg / ssTotal;
+    double mape = ((sumPercentageError / numSamplesTest) * 100);
+
+    fprintf(file, "%f,%f,%f,%f",mape, mae, mse, rSquared);
+    //printf("MAPE (Test Set): %f%%\n", mape);
+    //printf("MAE (Test Set): %f\n", mae);
+    //printf("MSE (Test Set): %f\n", mse);
+    //printf("R-squared (Test Set): %f\n", rSquared);
+}
 
 void guardarPesosYBiasCSV(const MLP *mlp, const char* archivoPesosCapaOculta, const char* archivoBiasCapaOculta, const char* archivoPesosCapaSalida, const char* archivoBiasCapaSalida) {
     int i, j;
